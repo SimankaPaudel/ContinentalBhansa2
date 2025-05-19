@@ -13,14 +13,7 @@
 <body>
 
   <!-- Homepage Style Navbar -->
-  <header class="navbar">
-    <div class="logo">Continental Bhansa</div>
-    <nav class="nav-links">
-      <a href="UserDashboard.html">Home</a>
-      <a href="contactus.html">Contact</a>
-      <a class="active-link" href="register.html">Register</a>
-    </nav>
-  </header>
+  <%@ include file="navbar.jsp" %>
 
   <!-- Banner -->
   <section class="banner">
@@ -33,30 +26,16 @@
     <div class="form-card">
       <h2>Welcome Back</h2>
       <p>Please enter your credentials to proceed</p>
-      <form>
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
+      <form action="Logincontroller" method="post">
+        <input type="text" placeholder="username" class="username" name="username" required />
+        <input type="password" placeholder="Password" class="password" name="password" required />
         <button type="submit" class="submit-btn">Login</button>
       </form>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-col about">
-      <h4>Continental Bhansa</h4>
-      <p>Crafting Indian excellence, one dish at a time.</p>
-    </div>
-    <div class="footer-col contact">
-      <h4>Contact Us</h4>
-      <p>Email: contact@continentalbhansa.com</p>
-      <p>Phone: +91 98765 43210</p>
-    </div>
-  </footer>
-
-  <div class="copyright">
-    &copy; 2025 Continental Bhansa. All rights reserved.
-  </div>
+  <%@ include file="Footer.jsp" %>
 
 </body>
 </html>

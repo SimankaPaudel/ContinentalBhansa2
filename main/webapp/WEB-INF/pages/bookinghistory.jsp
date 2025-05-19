@@ -7,29 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Continental Bhansa - Booking History</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="bookinghistory.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bookinghistory.css">
 </head>
 <body>
-    <header class="top-header">
-        <div class="logo">Continental Bhansa</div>
-        <nav class="top-nav">
-            <a href="#" class="top-nav-item">
-                <i class="fas fa-home"></i> Home
-            </a>
-            <a href="#" class="top-nav-item">
-                <i class="fas fa-bars"></i> Menu
-            </a>
-            <a href="#" class="top-nav-item active">
-                <i class="fas fa-clock"></i> Bookings
-            </a>
-            <a href="#" class="top-nav-item">
-                <i class="fas fa-sign-in-alt"></i> Login
-            </a>
-            <a href="#" class="top-nav-item">
-                <i class="fas fa-user-plus"></i> Register
-            </a>
-        </nav>
-    </header>
+<%@ include file="navbar.jsp" %>
+
+    
 
     <div class="dashboard-container">
         <div class="dashboard-content">
@@ -104,47 +87,7 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-brand">Continental Bhansa</div>
-        <p style="margin-bottom: 30px;">Experience authentic Indian flavors with a contemporary twist. Our chefs craft each dish with passion, tradition, and the finest ingredients.</p>
-        
-        <div class="footer-section">
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">Reservations</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Register</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <ul class="footer-links">
-                    <li>123 Spice Avenue, Culinary District, Flavorville, FL 33039</li>
-                    <li>+1 (555) 123-4567</li>
-                    <li>info@continentalBhansa.com</li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Our Services</h3>
-                <ul class="footer-links">
-                    <li>Authentic Cuisine</li>
-                    <li>Exquisite Menu</li>
-                    <li>Easy Reservations</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-        <div class="copyright">© 2024 Continental Bhansa. All rights reserved.</div>
-    </footer>
-
+    <%@ include file="Footer.jsp" %>
     <script>
         // Date picker functionality
         const fromDate = document.getElementById('fromDate');

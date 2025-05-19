@@ -1,28 +1,16 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>About Us - Continental Bhanchaa</title>
-  <link rel="stylesheet" href="aboutus.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/aboutus.css">
 </head>
 <body>
 
-<!-- Dashboard-Style Header -->
-<header style="background-color: #3b0a0f; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
-  <div style="color: #f4d160; font-size: 24px; font-weight: bold; font-family: 'Playfair Display', serif;">Continental Bhanchaa</div>
-  <nav>
-    <ul style="list-style: none; display: flex; gap: 25px; margin: 0; padding: 0;">
-      <li><a href="UserDashboard.html" style="color: #ffffff; text-decoration: none; font-weight: bold;">Home</a></li>
-      <li><a href="Menu.html" style="color: #ffffff; text-decoration: none; font-weight: bold;">Menu</a></li>
-      <li><a href="AboutUs.html" style="color: #f4d160; text-decoration: none; font-weight: bold;">About</a></li>
-      <li><a href="Contact.html" style="color: #ffffff; text-decoration: none; font-weight: bold;">Contact</a></li>
-      <li><a href="Login.html" style="color: #ffffff; text-decoration: none; font-weight: bold;">Login</a></li>
-    </ul>
-  </nav>
-</header>
+<%@ include file="navbar.jsp" %>
+
 
 <!-- Page Content -->
 <div class="container">
@@ -47,27 +35,27 @@
     <h2>Meet the Founders</h2>
     <div class="team-grid">
       <div class="member">
-        <img src="Abhigya.jpeg" alt="Abhigya Pun">
+        <img src="${pageContext.request.contextPath}/Abhigya.jpeg" alt="Abhigya Pun">
         <h3>Abhigya Pun</h3>
         <p>Co-founder & Executive Chef</p>
       </div>
       <div class="member">
-        <img src="images/member2.jpg" alt="Ashim Khadgi">
+        <img src="${pageContext.request.contextPath}/images/member2.jpg" alt="Ashim Khadgi">
         <h3>Ashim Khadgi</h3>
         <p>Operations </p>
       </div>
       <div class="member">
-        <img src="images/member3.jpg" alt="Prasiddha Bhattarai">
+        <img src="${pageContext.request.contextPath}/images/member3.jpg" alt="Prasiddha Bhattarai">
         <h3>Prasiddha Bhattarai</h3>
         <p>Finance & Strategy</p>
       </div>
       <div class="member">
-        <img src="prisha.jpeg" alt="Prisha Malla">
+        <img src="${pageContext.request.contextPath}/prisha.jpeg" alt="Prisha Malla">
         <h3>Prisha Malla</h3>
         <p>Brand & Marketing</p>
       </div>
       <div class="member">
-        <img src="Simanka.jpeg" alt="Simanka Paudel">
+        <img src="${pageContext.request.contextPath}/Simanka.jpeg" alt="Simanka Paudel">
         <h3>Simanka Paudel</h3>
         <p>Technology & Systems</p>
       </div>
@@ -82,30 +70,7 @@
 <!-- ... your existing About Us content ... -->
 
 <!-- Full Footer Section (like UserDashboard) -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-section">
-            <h3>Continental Bhanchaa</h3>
-            <p>Experience the finest fusion of authentic Nepali flavors with a continental twist.</p>
-        </div>
-        <div class="footer-section">
-            <h4>Contact</h4>
-            <p>Durbar Marg, Kathmandu, Nepal</p>
-            <p>Phone: +977 123456789</p>
-            <p>Email: info@continentalbhanchaa.com</p>
-        </div>  
-        <div class="footer-section">
-            <h4>Follow Us</h4>
-            <p><a href="#">Facebook</a></p>
-            <p><a href="#">Instagram</a></p>
-            <p><a href="#">Twitter</a></p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 Continental Bhanchaa. All rights reserved.</p>
-    </div>
-</footer>
-
+<%@ include file="Footer.jsp" %>
 
 
 

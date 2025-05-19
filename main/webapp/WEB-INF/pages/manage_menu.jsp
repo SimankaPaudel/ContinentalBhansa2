@@ -1,218 +1,164 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Manage Menu</title>
-<link rel="stylesheet" href="css/manage_menu.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Continental Bhansa | Admin Menu Management</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/manage_menu.css">
 
-
+   
+   
 </head>
 <body>
-	<div class="sidebar">
-  <h4 class="brand">Continental Bhansa</h4>
 
-  <a href="admin_dashboard.jsp">
-    <i class="fas fa-folder"></i> Dashboard
-  </a>
-  <a href="manage_reservation.jsp">
-    <i class="fas fa-calendar-alt"></i> Reservations
-  </a>
-  <a href="manage_user.jsp">
-    <i class="fas fa-users"></i> Users
-  </a>
-  <a href="#" class="active">
-    <i class="fas fa-bars"></i> Menu
-  </a>
+    <header>
+        <div class="admin-header">
+            <h1>Continental Bhansa</h1>
+            <h2>Menu Management System</h2>
+        </div>
+        <nav class="admin-nav">
+            <ul>
+                <li><a href="${pageContext.request.contextPath}/admindashboard">Dashboard</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/manage_menu" class="active">Menu Management</a></li>
+                <li><a href="${pageContext.request.contextPath}/manage_user">Manage User</a></li>
+                <li><a href="${pageContext.request.contextPath}/manage_reservation">Reservation</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="logout-section">
-    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
-  </div>
-</div>
+    <div class="container">
+        <!-- Display Messages -->
+        <c:if test="${not empty successMessage}">
+            <div class="message success-message">${successMessage}</div>
+        </c:if>
+        <c:if test="${not empty errorMessage}">
+            <div class="message error-message">${errorMessage}</div>
+        </c:if>
+        
+        <!-- Add New Item Form -->
+        <div class="form-container">
+            <h3>${empty menuItem ? 'Add New Menu Item' : 'Edit Menu Item'}</h3>
+            <form action="${pageContext.request.contextPath}/admin/manage_menu" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="${empty menuItem ? 'add' : 'update'}">
+                <input type="hidden" name="itemId" value="${menuItem.id}">
+                
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" required>
+                        <option value="indian" ${menuItem.category == 'indian' ? 'selected' : ''}>Indian</option>
+                        <option value="chinese" ${menuItem.category == 'chinese' ? 'selected' : ''}>Chinese</option>
+                        <option value="italian" ${menuItem.category == 'italian' ? 'selected' : ''}>Italian</option>
+                        <option value="nepali" ${menuItem.category == 'nepali' ? 'selected' : ''}>Nepali</option>
+                        <option value="desserts" ${menuItem.category == 'desserts' ? 'selected' : ''}>Desserts</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="itemName">Item Name:</label>
+                    <input type="text" id="itemName" name="itemName" value="${menuItem.name}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required>${menuItem.description}</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" step="0.01" min="0" value="${menuItem.price}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="itemImage">Image:</label>
+                    <input type="file" id="itemImage" name="itemImage" accept="image/*">
+                    <c:if test="${not empty menuItem.imagePath}">
+                        <div class="current-image-container">
+                            <p>Current image:</p>
+                            <img src="${pageContext.request.contextPath}/Resources/Menu/${menuItem.imagePath}" alt="${menuItem.name}">
+                        </div>
+                    </c:if>
+                </div>
+                
+                <div class="btn-container">
+                    <button type="submit" class="primary-btn">Save Item</button>
+                    <a href="${pageContext.request.contextPath}/admin/manage_menu" class="btn">Cancel</a>
+                </div>
+            </form>
+        </div>
 
+        <!-- Category Selection Tabs -->
+        <div class="category-tabs">
+            <a href="${pageContext.request.contextPath}/admin/manage_menu?category=indian" class="tab-button ${param.category == 'indian' || param.category == null ? 'active' : ''}">Indian</a>
+            <a href="${pageContext.request.contextPath}/admin/manage_menu?category=chinese" class="tab-button ${param.category == 'chinese' ? 'active' : ''}">Chinese</a>
+            <a href="${pageContext.request.contextPath}/admin/manage_menu?category=italian" class="tab-button ${param.category == 'italian' ? 'active' : ''}">Italian</a>
+            <a href="${pageContext.request.contextPath}/admin/manage_menu?category=nepali" class="tab-button ${param.category == 'nepali' ? 'active' : ''}">Nepali</a>
+            <a href="${pageContext.request.contextPath}/admin/manage_menu?category=desserts" class="tab-button ${param.category == 'desserts' ? 'active' : ''}">Desserts</a>
+        </div>
 
-	<div class="main">
-		<div class="header">
-			<h1>Manage Menu</h1>
-			<button class="add-btn">Add Menu Item</button>
-		</div>
-
-	<div class="search-filter">
-  <input type="text" placeholder="Search menu items...">
-
-  <!-- Category Dropdown -->
-  <select>
-    <option>All Categories</option>
-    <option>Appetizers</option>
-    <option>Main Course</option>
-    <option>Desserts</option>
-    <option>Beverages</option>
-    <option>Vegetarian</option>
-    <option>Non-Vegetarian</option>
-    <option>Specials</option>
-  </select>
-
-  <!-- Item Dropdown -->
-  <select>
-    <option>All Items</option>
-    <option>Chicken Biryani</option>
-    <option>Paneer Butter Masala</option>
-    <option>Spring Rolls</option>
-    <option>Tiramisu</option>
-    <option>Mango Lassi</option>
-    <option>Caprese Salad</option>
-    <option>Tandoori Chicken</option>
-  </select>
-</div>
-
-
-		<div class="grid-container">
-			<div class="card">
-				<div class="card-header">
-					<span class="tag special">Chef's Special</span> <span class="price">NPR 650</span>
-				</div>
-				<h3>Butter Chicken</h3>
-				<p>Tender chicken pieces cooked in a rich and creamy
-					tomato-based sauce with butter and aromatic spices.</p>
-				<div class="tags">
-					<span>Main Course</span>
-				</div>
-				<div class="actions">
-					<label class="switch"><input type="checkbox" checked><span
-						class="slider round"></span></label>
-					<button>Edit</button>
-					<button>Delete</button>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header">
-					<span class="price">NPR 450</span>
-				</div>
-				<h3>Paneer Tikka </h3>
-				<p>Cubes of cottage cheese marinated in spices, grilled and then
-					cooked in a rich tomato gravy.</p>
-				<div class="tags">
-					<span>Main Course</span><span>Vegetarian</span>
-				</div>
-				<div class="actions">
-					<label class="switch"><input type="checkbox" checked><span
-						class="slider round"></span></label>
-					<button>Edit</button>
-					<button>Delete</button>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-header">
-					<span class="tag special">Chef's Special</span> <span class="price">NPR 720</span>
-				</div>
-				<h3>Chicken Biryani</h3>
-				<p>Fragrant basmati rice cooked with tender chicken pieces,
-					caramelized onions, and aromatic spices.</p>
-				<div class="tags">
-					<span>Rice and Biryani</span><span>Spicy</span>
-				</div>
-				<div class="actions">
-					<label class="switch"><input type="checkbox" checked><span
-						class="slider round"></span></label>
-					<button>Edit</button>
-					<button>Delete</button>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-header">
-					<span class="price">NPR 80</span>
-				</div>
-				<h3>Garlic Naan</h3>
-				<p>Soft and fluffy bread stuffed with minced garlic and herbs,
-					baked in a tandoor oven.</p>
-				<div class="tags">
-					<span>Bread</span><span>Vegetarian</span>
-				</div>
-				<div class="actions">
-					<label class="switch"><input type="checkbox" checked><span
-						class="slider round"></span></label>
-					<button>Edit</button>
-					<button>Delete</button>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-header">
-					<span class="price">NPR 580</span>
-				</div>
-				<h3>Mutton Kebab (Curry)</h3>
-				<p>Spicy curry made with tender mutton pieces, potatoes, and a
-					tangy sauce with vinegar and spices.</p>
-				<div class="tags">
-					<span>Main Course</span><span>Spicy</span>
-				</div>
-				<div class="actions">
-					<label class="switch"><input type="checkbox" checked><span
-						class="slider round"></span></label>
-					<button>Edit</button>
-					<button>Delete</button>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-header">
-					<span class="price">NPR 350</span>
-				</div>
-				<h3>Mango Lassi</h3>
-				<p>Refreshing yogurt-based drink blended with sweet mango pulp
-					and a hint of cardamom.</p>
-				<div class="tags">
-					<span>Beverages</span><span>Vegetarian</span>
-				</div>
-				<div class="actions">
-					<label class="switch"><input type="checkbox" checked><span
-						class="slider round"></span></label>
-					<button>Edit</button>
-					<button>Delete</button>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-header">
-					<span class="price">NPR 480</span>
-				</div>
-				<h3>Dumplings</h3>
-				<p>Soft dough filled with minced meat of choice, spiced potatoes, peas, and aromatic
-					spices, steamed to perfection.</p>
-				<div class="tags">
-					<span>Appetizer</span><span>Non-Vegetarian</span>
-				</div>
-				<div class="actions">
-					<label class="switch"><input type="checkbox"><span
-						class="slider round"></span></label>
-					<button>Edit</button>
-					<button>Delete</button>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-header">
-					<span class="price">NPR 100</span>
-				</div>
-				<h3>Gulab Jamun</h3>
-				<p>Soft milk solids dumplings, fried and soaked in rose-flavored
-					sugar syrup.</p>
-				<div class="tags">
-					<span>Desserts</span><span>Vegetarian</span>
-				</div>
-				<div class="actions">
-					<label class="switch"><input type="checkbox" checked><span
-						class="slider round"></span></label>
-					<button>Edit</button>
-					<button>Delete</button>
-				</div>
-			</div>
-		</div>
-	</div>
+        <!-- Menu Items Table for Active Category -->
+        <div class="category-content active">
+            <h3 class="section-title">
+                <c:choose>
+                    <c:when test="${param.category == 'chinese'}">Chinese Cuisine</c:when>
+                    <c:when test="${param.category == 'italian'}">Italian Cuisine</c:when>
+                    <c:when test="${param.category == 'nepali'}">Nepali Cuisine</c:when>
+                    <c:when test="${param.category == 'desserts'}">Desserts</c:when>
+                    <c:otherwise>Indian Cuisine</c:otherwise>
+                </c:choose>
+            </h3>
+            
+            <table class="menu-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:choose>
+                        <c:when test="${param.category == 'chinese'}">
+                            <c:set var="itemList" value="${chineseMenuItems}" />
+                        </c:when>
+                        <c:when test="${param.category == 'italian'}">
+                            <c:set var="itemList" value="${italianMenuItems}" />
+                        </c:when>
+                        <c:when test="${param.category == 'nepali'}">
+                            <c:set var="itemList" value="${nepaliMenuItems}" />
+                        </c:when>
+                        <c:when test="${param.category == 'desserts'}">
+                            <c:set var="itemList" value="${dessertsMenuItems}" />
+                        </c:when>
+                        <c:otherwise>
+                            <c:set var="itemList" value="${indianMenuItems}" />
+                        </c:otherwise>
+                    </c:choose>
+                    
+                    <c:forEach var="item" items="${itemList}">
+                        <tr>
+                            <td><img src="${pageContext.request.contextPath}/${item.imagePath}" alt="${item.name}" class="thumbnail"></td>
+                            <td>${item.name}</td>
+                            <td>${item.description}</td>
+                            <td>$${item.price}</td>
+                            <td class="actions">
+                                <a href="${pageContext.request.contextPath}/admin/manage_menu?action=edit&id=${item.id}" class="edit-btn">Edit</a>
+                                <form action="${pageContext.request.contextPath}/admin/manage_menu" method="post" style="display:inline;">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="itemId" value="${item.id}">
+                                    <button type="submit" class="delete-btn" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
+

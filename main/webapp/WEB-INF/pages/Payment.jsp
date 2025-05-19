@@ -6,24 +6,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Payment - Continental Bhansa</title>
-  <link rel="stylesheet" href="navbar.css" />
-  <link rel="stylesheet" href="footer.css" />
-  <link rel="stylesheet" href="Payment.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Payment.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <!-- ✅ Updated Navbar -->
-  <header class="navbar">
-    <div class="logo">Continental Bhansa</div>
-    <nav class="nav-links">
-      <a href="#">Home</a>
-      <a href="Menu.html">Menu</a>
-      <a href="bookinghistory.html">Bookings</a>
-      <a href="Login.html">Login</a>
-      <a href="register.html">Register</a>
-    </nav>
-  </header>
+  <%@ include file="navbar.jsp" %>
 
   <!-- Banner -->
   <section class="banner">
@@ -62,33 +53,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-col about">
-      <h4>Continental Bhansa</h4>
-      <p>Experience authentic Indian flavors with a contemporary twist. Our chefs craft each dish with passion, tradition, and the finest ingredients.</p>
-      <div class="social-icons">
-        <a href="#">📘</a>
-        <a href="#">📷</a>
-        <a href="#">🐦</a>
-      </div>
-    </div>
-    <div class="footer-col links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">Reservations</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Register</a></li>
-      </ul>
-    </div>
-    <div class="footer-col contact">
-      <h4>Contact Us</h4>
-      <p>123 Spice Avenue, Culinary District, Flavorville, FL 54321</p>
-      <p>+1 (543) 123-4567</p>
-      <p>info@continentalbhansa.com</p>
-    </div>
-  </footer>
+  <%@ include file="Footer.jsp" %>
 
   <div class="copyright">
     &copy; 2025 Continental Bhansa. All rights reserved.

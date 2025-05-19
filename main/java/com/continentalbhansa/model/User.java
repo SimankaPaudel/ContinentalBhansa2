@@ -5,51 +5,56 @@ import java.util.Date;
 
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
-    
+   
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String username;
     private String email;
     private String address;
     private String phoneNumber;
     private String passwordHash;
-    private Date registrationDate;
-    
+   
     public User() {
-        this.registrationDate = new Date();
     }
 
+    public User(Long id,String username,String address,String email,String phoneNumber,String passwordHash) {
+    this.id = id;
+    this.username = username;
+    this.address = address;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+    this.passwordHash = passwordHash;
+    }
+   
+    public User(String username,String address,String email,String phoneNumber,String passwordHash) {
+    this.username = username;
+    this.address = address;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+    this.passwordHash = passwordHash;
+    }
+   
     public String getAddress() {
-    	return address;
+    return address;
     }
     public void setAddress(String address) {
-    	this.address = address;
+    this.address = address;
     }
     public Long getId() {
         return id;
     }
 
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUserName() {
+        return username;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setUserName(String username) {
+        this.username = username;
     }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
+   
     public String getEmail() {
         return email;
     }
@@ -73,18 +78,5 @@ public class User implements Serializable {
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
-
-    public Date getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(Date registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-    
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
+   
 }
-
-

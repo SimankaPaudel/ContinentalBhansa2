@@ -12,6 +12,11 @@ body {
     line-height: 1.6;
 }
 
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
 /* Header */
 .main-header {
     background-color: #1a1a1a;
@@ -72,6 +77,48 @@ h1 {
     padding: 20px 0;
     color: #FFD700;
 }
+
+.search-container {
+  width: 100%;
+  max-width: 600px;     /* max width for the search bar */
+  margin: 20px auto;    /* centers container horizontally */
+  display: flex;        /* flexbox for input + button alignment */
+  justify-content: center;
+  align-items: center;
+  gap: 8px;             /* space between input and button */
+  padding: 0 10px;      /* some horizontal padding */
+  box-sizing: border-box;
+}
+
+.search-input {
+  flex-grow: 1;             /* input takes remaining space */
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #a52a2a;   /* example: maroon highlight on focus */
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #a52a2a; /* maroon */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #7a1f1f; /* darker maroon on hover */
+}
+
 
 /* Hero Section */
 .maroon-section {
@@ -241,3 +288,25 @@ html {
     font-size: 13px;
     color: #e0c96c;
   }
+  
+  /* Responsive adjustments */
+@media (max-width: 768px) {
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .category-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .category-tabs button {
+        width: 80%;
+        margin: 5px 0;
+    }
+}
+ 

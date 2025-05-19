@@ -27,11 +27,10 @@ public class Profilecontroller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
+
 		request.getRequestDispatcher("/WEB-INF/pages/Profile.jsp").forward(request, response);
-=======
 		request.getRequestDispatcher("WEB-INF/pages/Profile.jsp").forward(request, response);
->>>>>>> 048ccb8aefafc522dacd7b2f9113e53288a1dc41
+
 	}
 
 	/**

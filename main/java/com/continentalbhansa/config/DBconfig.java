@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBconfig {
-    private static final String DB_NAME = "continentalbhansas";
-    private static final String URL = "jdbc:mysql://localhost:3306/" + DB_NAME;
+    private static final String DB_NAME = "continental bhansa";
+    private static final String URL = "jdbc:mysql://localhost:3306/" + DB_NAME; 
     private static final String USERNAME = "root";  // Ensure this is correct
     private static final String PASSWORD = "";      // Ensure this is correct
 
@@ -28,3 +28,4 @@ public class DBconfig {
         return conn;
     }
 }
+

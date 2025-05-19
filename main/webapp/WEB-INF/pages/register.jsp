@@ -15,16 +15,7 @@
 
 <body>
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="font-logo">Continental Bhansa</div>
-    <nav class="nav-links">
-      <a href="UserDashboard.html">Home</a>
-      <a href="contactus.html">Contact Us</a>
-      <a href="Login.html">Login</a>
-      
-    </nav>
-  </header>
-
+  <%@ include file="navbar.jsp" %>
   <!-- Banner -->
   <section class="banner">
     <h1>Create Account</h1>
@@ -62,31 +53,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-col about">
-      <h4>Continental Bhansa</h4>
-      <p>
-        Experience authentic Indian flavors with a contemporary twist. Our chefs craft each dish with passion, tradition, and the finest ingredients.
-      </p>
-    </div>
-    <div class="footer-col links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Register</a></li>
-      </ul>
-    </div>
-    <div class="footer-col contact">
-      <h4>Contact Us</h4>
-      <p>123 Spice Avenue, Culinary District, Flavorville, FL 54321</p>
-      <p>+1 (543) 123-4567</p>
-      <p>info@continentalbhansa.com</p>
-    </div>
-  </footer>
-
-  <div class="copyright">
-    &copy; 2025 Continental Bhansa. All rights reserved.
-  </div>
+  <%@ include file="Footer.jsp" %>
+  
 </body>
 </html>

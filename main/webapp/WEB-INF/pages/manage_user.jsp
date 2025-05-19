@@ -5,28 +5,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Manage Users</title>
-<link rel="stylesheet" href="css/manage_user.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/manage_user.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
 
 </head>
 <body>
+
 	<div class="layout">
 		<!-- Sidebar -->
 		<div class="sidebar">
   <h4 class="brand">Continental Bhansa</h4>
 
-  <a href="admin_dashboard.jsp">
+   <a href="${pageContext.request.contextPath}/admin_dashboard">
     <i class="fas fa-folder"></i> Dashboard
   </a>
-  <a href="manage_reservation.jsp">
+  <a href="${pageContext.request.contextPath}/manage_reservation">
     <i class="fas fa-calendar-alt"></i> Reservations
   </a>
-  <a href="#" class="active">
+  <a href="${pageContext.request.contextPath}/manage_user" class="active">
     <i class="fas fa-users"></i> Users
   </a>
-  <a href="manage_menu.jsp">
+  <a href="${pageContext.request.contextPath}/admin/manage_menu">
     <i class="fas fa-bars"></i> Menu
   </a>
 
@@ -43,7 +44,7 @@
 					<p>View and manage all user accounts</p>
 				</div>
 				<button class="add-user-btn">
-  					<i class="fas fa-user-plus"></i> Add User
+  					<i class="fas fa-user-plus"></i><a href="AddUserController">Add User</a> 
 				</button>
 			</div>
 

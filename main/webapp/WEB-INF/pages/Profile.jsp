@@ -11,17 +11,7 @@
 <body>
 
     <!-- Navbar -->
-    <div class="navbar">
-        <div class="logo">Continental Bhansa</div>
-        <ul class="nav-links">
-            <li><i class="fas fa-home"></i> Home</li>
-            <li><a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a></li>
-            <li><i class="fas fa-calendar-check"></i> Bookings</li>
-            <li class="active"><i class="fas fa-user"></i> Profile</li>
-            <li>Contact US</li>
-        </ul>
-    </div>
-
+    <%@ include file="navbar.jsp" %>
     <!-- Profile Content -->
     <div class="profile-container">
         <div class="profile-box">
@@ -45,41 +35,9 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-about">
-                <h3>Continental Bhansa</h3>
-                <p>Experience authentic flavors with a contemporary twist. Our chefs craft each dish with passion, tradition, and the finest ingredients.</p>
-                <div class="social-icons">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-twitter"></i>
-                </div>
-            </div>
+    
 
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li>Home</li>
-                    <li>Menu</li>
-                    <li>Reservations</li>
-                    <li>Profile</li>
-                    <li>Contact Us</li>  
-                    
-                </ul>
-            </div>
-
-            <div class="footer-contact">
-                <h4>Contact Us</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Kamalpokhari, Kathmandu</p>
-                <p><i class="fas fa-phone"></i> +977 9803421026</p>
-                <p><i class="fas fa-envelope"></i> info@continentalbhansa.com</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            © 2025 Continental Bhansa. All rights reserved.
-        </div>
-    </footer>
+            <%@ include file="Footer.jsp" %>
 
 </body>
 </html>

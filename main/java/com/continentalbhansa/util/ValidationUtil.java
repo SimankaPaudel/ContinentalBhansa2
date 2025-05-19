@@ -1,81 +1,74 @@
 package com.continentalbhansa.util;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.regex.Pattern;
+import jakarta.servlet.http.Part;
 
 public class ValidationUtil {
-    
-    private static final Pattern EMAIL_PATTERN = 
-            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-    
-    private static final Pattern PHONE_PATTERN = 
-            Pattern.compile("^[0-9+\\-\\s()]{8,20}$");
-    
-    public static boolean validateName(String name) {
-        if (name == null || name.trim().isEmpty()) {
+
+    // 1. Validate if a field is null or empty
+    public static boolean isNullOrEmpty(String value) {
+        return value == null || value.trim().isEmpty();
+    }
+
+    // 2. Validate if a string contains only letters
+    public static boolean isAlphabetic(String value) {
+        return value != null && value.matches("^[a-zA-Z]+$");
+    }
+
+    // 3. Validate if a string starts with a letter and is composed of letters and numbers
+    public static boolean isAlphanumericStartingWithLetter(String value) {
+        return value != null && value.matches("^[a-zA-Z][a-zA-Z0-9]*$");
+    }
+
+    // 4. Validate if a string is "male" or "female" (case insensitive)
+    public static boolean isValidGender(String value) {
+        return value != null && (value.equalsIgnoreCase("male") || value.equalsIgnoreCase("female"));
+    }
+
+    // 5. Validate if a string is a valid email address
+    public static boolean isValidEmail(String email) {
+        String emailRegex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+        return email != null && Pattern.matches(emailRegex, email);
+    }
+
+    // 6. Validate if a number is of 10 digits and starts with 98
+    public static boolean isValidPhoneNumber(String number) {
+        return number != null && number.matches("^98\\d{8}$");
+    }
+
+    // 7. Validate if a password is composed of at least 1 capital letter, 1 number, and 1 symbol
+    public static boolean isValidPassword(String password) {
+        String passwordRegex = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
+        return password != null && password.matches(passwordRegex);
+    }
+
+    // 8. Validate if a Part's file extension matches with image extensions (jpg, jpeg, png, gif)
+    public static boolean isValidImageExtension(Part imagePart) {
+        if (imagePart == null || isNullOrEmpty(imagePart.getSubmittedFileName())) {
             return false;
         }
-        
-        if (name.trim().length() < 2 || name.trim().length() > 50) {
-        	return false;
-            throw new IllegalArgumentException("This field must be between 2 and 50 characters");
-        }
-        
-        if (!name.trim().matches("^[a-zA-Z\\s'-]+$")) {
-        	return false;
-           
-        }
-        return true;
+        String fileName = imagePart.getSubmittedFileName().toLowerCase();
+        return fileName.endsWith(".jpg") || fileName.endsWith(".jpeg") || fileName.endsWith(".png") || fileName.endsWith(".gif");
     }
-    
-    public static void validateEmail(String email) {
-        if (email == null || email.trim().isEmpty()) {
-            throw new IllegalArgumentException("Email is required");
-        }
-        
-        if (!EMAIL_PATTERN.matcher(email).matches()) {
-            throw new IllegalArgumentException("Invalid email format");
-        }
+
+    // 9. Validate if password and retype password match
+    public static boolean doPasswordsMatch(String password, String retypePassword) {
+        return password != null && password.equals(retypePassword);
     }
-    
-    public static void validatePhoneNumber(String phoneNumber) {
-        if (phoneNumber == null || phoneNumber.trim().isEmpty()) {
-            throw new IllegalArgumentException("Phone number is required");
+
+    // 10. Validate if the date of birth is at least 16 years before today
+    public static boolean isAgeAtLeast16(LocalDate dob) {
+        if (dob == null) {
+            return false;
         }
-        
-        if (!PHONE_PATTERN.matcher(phoneNumber).matches()) {
-            throw new IllegalArgumentException("Invalid phone number format");
-        }
+        LocalDate today = LocalDate.now();
+        return Period.between(dob, today).getYears() >= 16;
     }
-    
-    public static void validatePassword(String password) {
-        if (password == null || password.isEmpty()) {
-            throw new IllegalArgumentException("Password is required");
-        }
-        
-        if (password.length() < 8) {
-            throw new IllegalArgumentException("Password must be at least 8 characters long");
-        }
-        
-        // Check for at least one digit
-        if (!password.matches(".*\\d.*")) {
-            throw new IllegalArgumentException("Password must contain at least one digit");
-        }
-        
-        // Check for at least one uppercase letter
-        if (!password.matches(".*[A-Z].*")) {
-            throw new IllegalArgumentException("Password must contain at least one uppercase letter");
-        }
-        
-        // Check for at least one lowercase letter
-        if (!password.matches(".*[a-z].*")) {
-            throw new IllegalArgumentException("Password must contain at least one lowercase letter");
-        }
-        
-        // Check for at least one special character
-        if (!password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?].*")) {
-            throw new IllegalArgumentException("Password must contain at least one special character");
-        }
-    }
+
+	public static boolean validateName(String firstName) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
-
-

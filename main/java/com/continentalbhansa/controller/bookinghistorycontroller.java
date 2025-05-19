@@ -1,5 +1,8 @@
 package com.continentalbhansa.controller;
 
+import com.continentalbhansa.model.Reservations;
+import com.continentalbhansa.service.BookingHistoryService;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,6 +16,7 @@ import java.io.IOException;
 @WebServlet(asyncSupported = true, urlPatterns = { "/bookinghistorycontroller" })
 public class bookinghistorycontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private BookingHistoryService bookinghistoryService;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -20,6 +24,11 @@ public class bookinghistorycontroller extends HttpServlet {
     public bookinghistorycontroller() {
         super();
         // TODO Auto-generated constructor stub
+    }
+ 
+    @Override
+    public void init() throws ServletException {
+        bookinghistoryService = new BookingHistoryService();
     }
 
 	/**

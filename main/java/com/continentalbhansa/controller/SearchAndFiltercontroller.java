@@ -1,41 +1,42 @@
 package com.continentalbhansa.controller;
 
+import com.continentalbhansa.model.MenuItem;
+import com.continentalbhansa.service.SearchAndFilterService;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import jakarta.servlet.http.*;
 
-/**
- * Servlet implementation class SearchAndFiltercontroller
- */
-@WebServlet(asyncSupported = true, urlPatterns = { "/SearchAndFiltercontroller" })
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet("/menu/search")
 public class SearchAndFiltercontroller extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SearchAndFiltercontroller() {
-        super();
-        // TODO Auto-generated constructor stub
+
+    private SearchAndFilterService searchAndFilterService;
+
+    @Override
+    public void init() throws ServletException {
+    	searchAndFilterService = new SearchAndFilterService ();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/pages/SearchAndFilter.jsp").forward(request, response);
-	}
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+        String keyword = request.getParameter("keyword");
+        String category = request.getParameter("category");
 
+        if (keyword == null) keyword = "";
+        if (category == null) category = "All";
+
+        List<MenuItem> filteredItems = searchAndFilterService.searchAndFilterMenuItems(keyword, category);
+
+        request.setAttribute("menuItems", filteredItems);
+        request.setAttribute("keyword", keyword);
+        request.setAttribute("category", category);
+
+        request.getRequestDispatcher("/viewMenu.jsp").forward(request, response);
+    }
 }
+

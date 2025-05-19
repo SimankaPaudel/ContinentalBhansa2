@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Continental Bhansa - Home</title>
-  <link rel="stylesheet" href="UserDashboard.css"/>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/UserDashboard.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -17,11 +17,15 @@
     <div class="font-logo">Continental Bhansa</div>
     <nav class="nav-links">
       <a href="#">Home</a>
-      <a href="Login.html">Login</a>
-      <a href="contactus.html">Contact Us</a>
-      <a href="register.html">Register</a>
-      <a href="Reservation.html">Reservation</a>
-      <a href="Menu.html">Menu</a>
+      <a href="${pageContext.request.contextPath}/Logincontroller">Login</a>
+      <a href="${pageContext.request.contextPath}/contactuscontroller">Contact Us</a>
+      <a href="${pageContext.request.contextPath}/registercontroller">Register</a>
+      <a href="${pageContext.request.contextPath}/Reservationcontroller">Reservation</a>
+      <a href="${pageContext.request.contextPath}/MenuController">Menu</a>
+      <form action="${pageContext.request.contextPath}/logout" method="post">
+			<input type="submit" class="nav-button" value="Logout" />
+	</form>
+      
     </nav>
     
   </header>
@@ -38,11 +42,11 @@
     <h2 class="section-title">Discover More</h2>
     <div class="slider-wrapper">
       <div class="slider-track">
-        <div class="slide"><img src="img/Slider 1.png" alt="Slide 1"></div>
-        <div class="slide"><img src="img/Slider 2.png" alt="Slide 2"></div>
-        <div class="slide"><img src="img/Slider 3.png" alt="Slide 3"></div>
-        <div class="slide"><img src="img/Slider 1.png" alt="Slide 1 Duplicate"></div>
-        <div class="slide"><img src="img/Slider 2.png" alt="Slide 2 Duplicate"></div>
+        <div class="slide"><img src="${pageContext.request.contextPath}/Resources/attachments/Slider 1.jpg" alt="Slide 1"></div>
+        <div class="slide"><img src="${pageContext.request.contextPath}/Resources/attachments/Slider 2.png" alt="Slide 2"></div>
+        <div class="slide"><img src="${pageContext.request.contextPath}/Resources/attachments/Slider 3.png" alt="Slide 3"></div>
+        <div class="slide"><img src="${pageContext.request.contextPath}/Resources/attachments/Slider 1.jpg" alt="Slide 1 Duplicate"></div>
+        <div class="slide"><img src="${pageContext.request.contextPath}/Resources/attachments/Slider 2.png" alt="Slide 2 Duplicate"></div>
       </div>
     </div>
   </section>
@@ -71,22 +75,22 @@
   <h2 class="section-title">Chef's Special</h2>
   <div class="gallery-grid">
     <div class="gallery-item">
-      <img src="img/biriyani.jpeg" alt="Biriyani">
+      <img src="${pageContext.request.contextPath}/Resources/attachments/biriyani.jpeg" alt="Biriyani">
       <p class="caption">Biriyani</p>
       <p class="desc">The most lovable and famous dish available with 3 different meat bases.</p>
     </div>
     <div class="gallery-item">
-      <img src="img/Jaituni chicken tikka.jpg" alt="Jaituni Chicken Tikka">
+      <img src="${pageContext.request.contextPath}/Resources/attachments/Jaituni chicken tikka.jpg" alt="Jaituni Chicken Tikka">
       <p class="caption">Jaituni Chicken Tikka</p>
       <p class="desc">Chicken tikka marinated in chopped kalamata olives with burnt garlic and hang curd, spread with confit tomato garlic, served with stuffed cheese bun.</p>
     </div>
     <div class="gallery-item">
-      <img src="img/Lamb Madras Curry.jpg" alt="Lamb Madras Curry">
+      <img src="${pageContext.request.contextPath}Resources/attachments/Lamb Madras Curry.jpg" alt="Lamb Madras Curry">
       <p class="caption">Lamb Madras Curry</p>
       <p class="desc">A fiery, flavorful curry with tender lamb simmered in a rich tomato and tamarind sauce. A true showstopper for spice lovers.</p>
     </div>
     <div class="gallery-item">
-      <img src="img/Spiced lamb Shanl with saffrom rice.jpg" alt="Spiced Lamb Shank with Saffron Rice">
+      <img src="${pageContext.request.contextPath}Resources/attachments/Spiced lamb Shanl with saffrom rice.jpg" alt="Spiced Lamb Shank with Saffron Rice">
       <p class="caption">Spiced Lamb Shank with Saffron Rice</p>
       <p class="desc">Rich in spices, the lamb shank is full of falling-off-the-bone flavour, layered with fluffy saffron rice and 'goodies'.</p>
     </div>
@@ -103,33 +107,7 @@
 </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-col about">
-      <h4>Continental Bhansa</h4>
-      <p>
-        Experience authentic Indian flavors with a contemporary twist. Our chefs craft each dish with passion, tradition, and the finest ingredients.
-      </p>
-    </div>
-    <div class="footer-col links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Register</a></li>
-      </ul>
-    </div>
-    <div class="footer-col contact">
-      <h4>Contact Us</h4>
-      <p>123 Spice Avenue, Culinary District, Flavorville, FL 54321</p>
-      <p>+1 (543) 123-4567</p>
-      <p>info@continentalbhansa.com</p>
-    </div>
-  </footer>
-  
-  <div class="copyright">
-    &copy; 2025 Continental Bhansa. All rights reserved.
-  </div>
-  
+  <%@ include file="Footer.jsp" %>
 
 </body>
 </html>

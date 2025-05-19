@@ -1,38 +1,62 @@
 package com.continentalbhansa.util;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
-import com.continentalbhansa.model.User;
-
+/**
+ * Utility class for managing HTTP sessions in a web application.
+ * Provides methods to set, get, remove session attributes and invalidate sessions.
+ */
 public class SessionUtil {
     
-    private static final String USER_SESSION_KEY = "user";
-    private static final int SESSION_TIMEOUT = 30 * 60; // 30 minutes in seconds
-    
-    public static void setUser(HttpSession session, User user) {
-        if (session != null) {
-            session.setAttribute(USER_SESSION_KEY, user);
-            session.setMaxInactiveInterval(SESSION_TIMEOUT);
-        }
+    /**
+     * Sets an attribute in the session.
+     *
+     * @param request the HttpServletRequest from which the session is obtained
+     * @param key     the key under which the attribute is stored
+     * @param value   the value of the attribute to store in the session
+     */
+    public static void setAttribute(HttpServletRequest request, String key, Object value) {
+        HttpSession session = request.getSession();
+        session.setAttribute(key, value);
     }
-    
-    public static User getUser(HttpSession session) {
+
+    /**
+     * Retrieves an attribute from the session.
+     *
+     * @param request the HttpServletRequest from which the session is obtained
+     * @param key     the key of the attribute to retrieve
+     * @return the attribute value, or null if the attribute does not exist or the session is invalid
+     */
+    public static Object getAttribute(HttpServletRequest request, String key) {
+        HttpSession session = request.getSession(false);
         if (session != null) {
-            Object userObj = session.getAttribute(USER_SESSION_KEY);
-            if (userObj instanceof User) {
-                return (User) userObj;
-            }
+            return session.getAttribute(key);
         }
         return null;
     }
-    
-    public static boolean isLoggedIn(HttpSession session) {
-        return getUser(session) != null;
-    }
-    
-    public static void logout(HttpSession session) {
+
+    /**
+     * Removes an attribute from the session.
+     *
+     * @param request the HttpServletRequest from which the session is obtained
+     * @param key     the key of the attribute to remove
+     */
+    public static void removeAttribute(HttpServletRequest request, String key) {
+        HttpSession session = request.getSession(false);
         if (session != null) {
-            session.removeAttribute(USER_SESSION_KEY);
+            session.removeAttribute(key);
+        }
+    }
+
+    /**
+     * Invalidates the current session.
+     *
+     * @param request the HttpServletRequest from which the session is obtained
+     */
+    public static void invalidateSession(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
             session.invalidate();
         }
     }

@@ -1,17 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="css/admin_dashboard.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin_dashboard.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   
   
 </head>
 <body>
+	
 
  <div class="sidebar">
   <h4 class="brand">Continental Bhansa</h4>
@@ -19,17 +21,17 @@
   <a href="#" class="active">
     <i class="fas fa-folder"></i> Dashboard
   </a>
-  <a href="manage_reservation.jsp">
+  <a href="${pageContext.request.contextPath}/manage_reservation">
     <i class="fas fa-calendar-alt"></i> Reservations
   </a>
-  <a href="manage_user.jsp">
+  <a href="${pageContext.request.contextPath}/manage_user">
     <i class="fas fa-users"></i> Users
   </a>
-  <a href="manage_menu.jsp">
+  <a href="${pageContext.request.contextPath}/admin/manage_menu">
     <i class="fas fa-bars"></i> Menu
   </a>
 
-  <div class="logout-section">
+  <div class="${pageContext.request.contextPath}/logout-section">
     <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
   </div>
 </div>

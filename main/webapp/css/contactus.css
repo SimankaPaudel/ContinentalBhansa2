@@ -48,7 +48,7 @@ header {
 
 /* Hero */
 .hero {
-    background: url("img/contact.avif") center/cover no-repeat;
+    background: url("../Resources/Contact Us/Contact us.avif") center/cover no-repeat;
     height: 300px;
     display: flex;
     align-items: center;

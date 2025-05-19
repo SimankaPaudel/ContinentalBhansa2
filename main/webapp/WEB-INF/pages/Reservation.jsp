@@ -6,23 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation Management - Continental Bhansa</title>
-    <link rel="stylesheet" href="Reservation.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Reservation.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <a href="index.html" class="logo">Continental Bhansa</a>
-            <nav>
-                <ul>
-                    <li><a href="UserDashboard.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a></li>
-                    <li><a href="BookTable.html"><i class="fas fa-calendar"></i> Bookings</a></li>
-                    <li><a href="Login.html"><i class="fas fa-user"></i> Login</a></li>
-                    <li><a href="register.html"><i class="fas fa-user-plus"></i> Register</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <%@ include file="navbar.jsp" %>
     
     <main>
         <div class="app-container">
@@ -498,5 +485,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+<%@ include file="Footer.jsp" %>
 </body>
 </html>
