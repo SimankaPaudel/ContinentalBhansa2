@@ -45,6 +45,8 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
    String email = request.getParameter("email");
    String phone = request.getParameter("phoneNumber");
    String password = request.getParameter("password");
+
+		password = PasswordUtil.encrypt(username, password);
    
  
    User user = new User();

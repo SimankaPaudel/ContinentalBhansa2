@@ -19,8 +19,8 @@ import com.continentalbhansa.util.cookieUtil;
 public class Logincontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static LoginService loginService;
-//	private static String ADMIN_USER = "admin";
-//	private static String ADMIN_PASSWORD = "admin";
+	private static String ADMIN_USER = "admin";
+	private static String ADMIN_PASSWORD = "admin";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -47,7 +47,6 @@ public class Logincontroller extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Logincontroller doPost() called");
 		try {
 			String userName = request.getParameter("username");
 			String password = request.getParameter("password");
@@ -63,33 +62,26 @@ public class Logincontroller extends HttpServlet {
 // if (ADMIN_USER.equals(userName) && ADMIN_PASSWORD.equals(password)) {
 // request.getRequestDispatcher("WEB-INF/pages/admin_dashboard.jsp").forward(request, response);
 // return;
-// }		
-			System.out.println("Login attempt: " + userName);
-			System.out.println("Password attempt: " + password);
+// }
 
 			String isValid = loginService.validateLogin(userName, password);
-			System.out.println("Validation result: " + isValid);
 			if (isValid == "user") {
 				request.setAttribute("success", "Login successful!");
 				cookieUtil.addCookie(response, "role", "user", 60 * 60); // Optional
 				request.getSession().setAttribute("username", userName); // Optional
-				System.out.println("User role set in session: " + userName);
 				request.getRequestDispatcher("WEB-INF/pages/UserDashboard.jsp").forward(request, response);
 			} else if (isValid == "admin") {
 				request.setAttribute("success", "Login successful!");
 				cookieUtil.addCookie(response, "role", "admin", 60 * 60); // Optional
 				request.getSession().setAttribute("Admin User", userName); // Optional
-				System.out.println("Admin role set in session: " + userName);
 				request.getRequestDispatcher("WEB-INF/pages/admin_dashboard.jsp").forward(request, response);
 			} else {
 				request.setAttribute("error", "Invalid username or password.");
-				System.out.println("Invalid login attempt: " + userName);
 				request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "An unexpected error occurred.");
-			System.out.println("Unexpected error in login: " + e.getMessage());
 			request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
 		}
 	}

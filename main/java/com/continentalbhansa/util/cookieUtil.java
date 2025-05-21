@@ -42,6 +42,7 @@ public class cookieUtil {
                     .orElse(null);
         }
         return null;
+
     }
 
     /**
@@ -55,5 +56,7 @@ public class cookieUtil {
         cookie.setMaxAge(0);
         cookie.setPath("/"); // Make cookie available to the entire application
         response.addCookie(cookie);
+
     }
+
 }

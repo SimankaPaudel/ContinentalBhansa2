@@ -59,5 +59,7 @@ public class SessionUtil {
         if (session != null) {
             session.invalidate();
         }
+    
     }
 }
+

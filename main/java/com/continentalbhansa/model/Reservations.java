@@ -12,6 +12,7 @@ public class Reservations {
     private int User_ID;
     private int Table_ID;
     private String User;
+    
 
     public Reservations(int reservation_Id, Date reservation_date, Time reservation_time,
                         int number_of_people, String status, int user_Id, int table_Id, String User) {
@@ -53,7 +54,7 @@ public class Reservations {
     public int getTable_ID() {
         return Table_ID;
     }
-    
+   
     public String getUser() {
         return User;
     }

@@ -66,9 +66,4 @@ public class ValidationUtil {
         LocalDate today = LocalDate.now();
         return Period.between(dob, today).getYears() >= 16;
     }
-
-	public static boolean validateName(String firstName) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }

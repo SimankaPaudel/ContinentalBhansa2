@@ -42,8 +42,8 @@
 				<strong>Address:</strong> Kamal Pokhari, Kathmandu, Nepal
 			</p>
 			<p>
-				<strong>Phone:</strong> <a href="tel:+1234567890">+977
-					1234567890</a>
+				<strong>Phone:</strong> <a href="tel:+977 9803421026">+977 9803421026</a>
+					
 			</p>
 			<p>
 				<strong>Email:</strong> <a
@@ -83,3 +83,4 @@
 
 </body>
 </html>
+

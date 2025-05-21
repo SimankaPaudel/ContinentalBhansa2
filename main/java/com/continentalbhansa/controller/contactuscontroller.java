@@ -15,7 +15,7 @@ import java.io.IOException;
  * ContactController handles POST requests from the contact us form and uses ContactService to save the data.
  */
 @WebServlet(asyncSupported = true, urlPatterns = { "/contactuscontroller" })
-public class ContactUsController extends HttpServlet {
+public class contactuscontroller extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private final ContactService contactService;
@@ -23,7 +23,7 @@ public class ContactUsController extends HttpServlet {
     /**
      * Initializes the ContactService.
      */
-    public ContactUsController() {
+    public contactuscontroller() {
         this.contactService = new ContactService();
     }
 
@@ -71,4 +71,3 @@ public class ContactUsController extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/pages/contactus.jsp").forward(request, response);
     }
 }
-

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title> System Reports</title>
-<link rel="stylesheet" href="report12.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/SystemReport.css">
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>

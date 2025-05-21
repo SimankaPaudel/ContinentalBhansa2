@@ -27,7 +27,7 @@ public class aboutuscontroller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/pages/SearchAndFilter.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/pages/aboutus.jsp").forward(request, response);
 	}
 
 	/**

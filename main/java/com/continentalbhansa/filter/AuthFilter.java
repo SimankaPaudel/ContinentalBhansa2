@@ -22,7 +22,7 @@ public class AuthFilter implements Filter{
 	private static final String HOME = "/UserDashboard";
 	private static final String ROOT = "/";
 	private static final String DASHBOARD = "/AdminDashboardController";
-	private static final String RESERVATION = "/manage_reservation";
+	private static final String MANAGE_RESERVATION = "/manage_reservation";
 	private static final String MENU_ITEMS = "/MenuController";
 	private static final String MANAGE_MENU = "/admin/manage_menu";
 	private static final String ABOUT = "/aboutuscontroller";
@@ -33,8 +33,13 @@ public class AuthFilter implements Filter{
 	private static final String EDIT_USER = "/EditUserController";
 	private static final String DELETE_USER = "/DeleteUserController";
 	private static final String BOOKING_HISTORY= "/bookinghistorycontroller";
-	private static final String MANAGE_USER = "/ManageUserController";
+	private static final String MANAGE_USER = "/manage_user";
 	private static final String SEARCH_AND_FILTER= "/SearchAndFiltercontroller";
+	private static final String BOOK_TABLE= "/BookTable";
+	private static final String SYSTEM_REPORTS = "/SystemReports";
+	private static final String RESERVATION = "/FindReservation";
+	
+	
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
@@ -64,11 +69,11 @@ public class AuthFilter implements Filter{
 			 //Admin is logged in
 	if (uri.endsWith(LOGIN) || uri.endsWith(REGISTER)) {
 	res.sendRedirect(req.getContextPath() + DASHBOARD);
-	} else if (uri.endsWith(DASHBOARD) || uri.endsWith(RESERVATION) || uri.endsWith(MANAGE_MENU)
-	|| uri.endsWith(PAYMENT) || uri.endsWith(ADD_USER)|| uri.endsWith(HOME) || uri.endsWith(ROOT))  {
+	} else if (uri.endsWith(DASHBOARD) || uri.endsWith(MANAGE_RESERVATION) || uri.endsWith(MANAGE_MENU)
+	|| uri.endsWith(PAYMENT) || uri.endsWith(MANAGE_USER) || uri.endsWith(ADD_USER)|| uri.endsWith(SYSTEM_REPORTS)||uri.endsWith(HOME) || uri.endsWith(MANAGE_USER) || uri.endsWith(ROOT))  {
 	chain.doFilter(request, response);
-	} else if (uri.endsWith(PROFILE) || uri.endsWith(MANAGE_USER)
-	|| uri.endsWith(BOOKING_HISTORY) || uri.endsWith(SEARCH_AND_FILTER)) {
+	} else if (uri.endsWith(PROFILE) 
+	|| uri.endsWith(BOOKING_HISTORY)   ) {
 	res.sendRedirect(req.getContextPath() + DASHBOARD);
 	} else {
 	res.sendRedirect(req.getContextPath() + DASHBOARD);
@@ -77,11 +82,12 @@ public class AuthFilter implements Filter{
 			 //User is logged in
 	if (uri.endsWith(LOGIN) || uri.endsWith(REGISTER)) {
 	res.sendRedirect(req.getContextPath() + HOME);
-	} else if (uri.endsWith(HOME) || uri.endsWith(ROOT) || uri.endsWith(ABOUT) || uri.endsWith(MENU_ITEMS)
-	|| uri.endsWith(CONTACT) || uri.endsWith(RESERVATION) || uri.endsWith(PROFILE)) {
+	} else if (uri.endsWith(HOME) || uri.endsWith(ROOT) || uri.endsWith(ABOUT) || uri.endsWith(MENU_ITEMS) || uri.endsWith(BOOK_TABLE)
+	|| uri.endsWith(CONTACT) || uri.endsWith(RESERVATION) || uri.endsWith(PAYMENT) || uri.endsWith(ADD_USER) || uri.endsWith(EDIT_USER)||
+	 uri.endsWith(DELETE_USER) || uri.endsWith(BOOKING_HISTORY) ||uri.endsWith(PROFILE)) {
 	chain.doFilter(request, response);
-	} else if (uri.endsWith(HOME) || uri.endsWith(PAYMENT) || uri.endsWith(ADD_USER)
-	|| uri.endsWith(EDIT_USER) || uri.endsWith(DELETE_USER) || uri.endsWith(BOOKING_HISTORY) || uri.endsWith(SEARCH_AND_FILTER)) {
+	} else if (uri.endsWith(HOME)   
+	|| uri.endsWith(SEARCH_AND_FILTER)) {
 	res.sendRedirect(req.getContextPath() + HOME);
 	} else {
 	res.sendRedirect(req.getContextPath() + HOME);

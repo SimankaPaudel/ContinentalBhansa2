@@ -13,22 +13,7 @@
 <body>
 
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="font-logo">Continental Bhansa</div>
-    <nav class="nav-links">
-      <a href="#">Home</a>
-      <a href="${pageContext.request.contextPath}/Logincontroller">Login</a>
-      <a href="${pageContext.request.contextPath}/contactuscontroller">Contact Us</a>
-      <a href="${pageContext.request.contextPath}/registercontroller">Register</a>
-      <a href="${pageContext.request.contextPath}/Reservationcontroller">Reservation</a>
-      <a href="${pageContext.request.contextPath}/MenuController">Menu</a>
-      <form action="${pageContext.request.contextPath}/logout" method="post">
-			<input type="submit" class="nav-button" value="Logout" />
-	</form>
-      
-    </nav>
-    
-  </header>
+   <%@ include file="navbar.jsp" %>
   
 
   <!-- Hero Section -->

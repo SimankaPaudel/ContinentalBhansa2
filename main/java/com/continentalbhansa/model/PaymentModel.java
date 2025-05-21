@@ -51,12 +51,4 @@ return cvv;
 public void setCvv(String cvv) {
 this.cvv = cvv;
 }
-
-public String getBillingAddress() {
-return billingAddress;
-}
-
-public void setBillingAddress(String billingAddress) {
-this.billingAddress = billingAddress;
-}
 }

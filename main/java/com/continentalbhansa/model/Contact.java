@@ -79,3 +79,5 @@ public class Contact {
                + ", submittedDate=" + submittedDate + "]";
     }
 }
+
+

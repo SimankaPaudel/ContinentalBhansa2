@@ -30,9 +30,13 @@
   <a href="${pageContext.request.contextPath}/admin/manage_menu">
     <i class="fas fa-bars"></i> Menu
   </a>
+  <a href="${pageContext.request.contextPath}/SystemReports">
+    <i class="fas fa-bars"></i> System Reports </a>
 
   <div class="${pageContext.request.contextPath}/logout-section">
     <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    
+    
   </div>
 </div>
 
