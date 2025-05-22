@@ -1,0 +1,220 @@
+@charset "UTF-8";
+/* Font Imports are in the HTML */
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #140c0e;
+    color: #e6e6e6;
+  }
+  
+  a {
+    color: #f4d160;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background-color: #0e0608;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+  }
+  
+  .font-logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 28px;
+    color: #f4d160;
+    font-weight: bold;
+  }
+  
+  .nav-links a {
+    margin-left: 24px;
+    font-weight: 500;
+  }
+  
+  .register-link {
+    border-bottom: 2px solid #f4d160;
+    padding-bottom: 2px;
+  }
+  
+  /* Banner */
+  .banner {
+    background: linear-gradient(to bottom, #6b0f1a, #3b0a0f);
+    text-align: center;
+    padding: 60px 20px;
+  }
+  
+  .banner h1 {
+    font-size: 36px;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    color: #f4d160;
+  }
+  
+  .banner p {
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #d8d8d8;
+  }
+  
+  /* Form Section */
+  .form-section {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+  }
+  
+  .form-card {
+    background-color: #1e1416;
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .form-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #f4d160;
+    margin-bottom: 6px;
+  }
+  
+  .form-card p {
+    font-size: 14px;
+    color: #c2c2c2;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  
+  .form-row {
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  
+  .dual {
+    flex-direction: row;
+    gap: 12px;
+  }
+  
+  .dual input {
+    flex: 1;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #2d1d1f;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  input::placeholder {
+    color: #aaa;
+  }
+  
+  .checkbox {
+    font-size: 13px;
+    margin: 15px 0;
+    display: block;
+    color: #c2c2c2;
+    font-weight: 400;
+  }
+  
+  .checkbox input {
+    margin-right: 6px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    background-color: #b11226;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #da1b34;
+  }
+  
+  .signin-text {
+    font-size: 13px;
+    text-align: center;
+    color: #c2c2c2;
+  }
+  
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    background-color: #0e0608;
+    color: #ccc;
+    flex-wrap: wrap;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .footer-col {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+  }
+  
+  .footer-col h4 {
+    color: #f4d160;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-col ul li {
+    margin-bottom: 6px;
+  }
+  
+  .footer-col ul li a {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .contact p {
+    margin: 6px 0;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .copyright {
+    text-align: center;
+    padding: 12px;
+    font-size: 13px;
+    background-color: #0e0608;
+    color: #555;
+  }
+  

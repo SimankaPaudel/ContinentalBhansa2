@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+/* BASE LAYOUT */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* HEADER */
+header {
+    background-color: #800000; /* Maroon */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+}
+
+.admin-header h1,
+.admin-header h2 {
+    margin: 0;
+    color: #ffffff;
+}
+
+/* NAVIGATION */
+.admin-nav {
+    background-color: #4d0000;
+    padding: 10px;
+}
+
+.admin-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-nav li {
+    margin: 0 15px;
+}
+
+.admin-nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-nav a:hover,
+.admin-nav a.active {
+    background-color: #a52a2a;
+}
+
+/* FORM STYLING */
+.form-container {
+    margin-top: 30px;
+}
+
+form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #800000;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* BUTTONS */
+button, .btn, .edit-btn, .delete-btn {
+    background-color: #800000;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover,
+.edit-btn:hover, .delete-btn:hover {
+    background-color: #a52a2a;
+}
+
+/* MESSAGE STYLES */
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.error-message {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+/* TABLE */
+.menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+.menu-table th, .menu-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.menu-table th {
+    background-color: #800000;
+    color: white;
+}
+
+.menu-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.menu-table .thumbnail {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* SECTION TITLES */
+.section-title {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #800000;
+}
+
+/* CATEGORY TABS */
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 10px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background-color: #fff;
+    border: 2px solid #800000;
+    color: #800000;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover,
+.tab-button.active {
+    background-color: #800000;
+    color: #ffffff;
+}
+
+/* IMAGE DISPLAY */
+.current-image-container {
+    margin-top: 10px;
+}
+
+.current-image-container img {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* ACTION BUTTONS */
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.edit-btn {
+    background-color: #800000;
+    color: #fff;
+}
+
+.delete-btn {
+    background-color: #a94442;
+    color: #fff;
+}
+
+    
+  
+

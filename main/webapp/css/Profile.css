@@ -1,0 +1,150 @@
+@charset "UTF-8";
+/* General Page Styles */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background-color: #1e1410;
+    color: #fff;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #140d0a;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #f1c40f;
+    font-style: italic;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li {
+    color: #ddd;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav-links li.active {
+    color: #f1c40f;
+    border-bottom: 2px solid #f1c40f;
+}
+
+/* Profile Box */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.profile-box {
+    background-color: #140d0a;
+    padding: 30px;
+    border: 1px solid #2d1b15;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.profile-box h2 {
+    margin-bottom: 20px;
+    color: #f1c40f;
+}
+
+.profile-box label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.profile-box input {
+    width: 100%;
+    padding: 10px;
+    background-color: #1f1512;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.profile-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #c0392b;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.profile-box button i {
+    margin-right: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: #140d0a;
+    padding: 40px 30px 20px;
+    color: #ccc;
+    font-size: 13px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-about, .footer-links, .footer-contact {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-about h3 {
+    color: #f1c40f;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.footer-links h4, .footer-contact h4 {
+    color: #f1c40f;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.footer-contact p i {
+    margin-right: 8px;
+}
+
+.social-icons i {
+    margin-right: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    color: #aaa;
+}

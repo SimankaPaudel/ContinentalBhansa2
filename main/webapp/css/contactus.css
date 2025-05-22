@@ -1,0 +1,236 @@
+@charset "UTF-8";
+/* Fonts and base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d0d0d;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* === Header/Nav === */
+header {
+    background-color: #1a1a1a;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #b30000;
+}
+
+.logo {
+    color: #FFD700;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #FFD700;
+}
+
+/* Hero */
+.hero {
+    background: url("../Resources/Contact Us/Contact us.avif") center/cover no-repeat;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.hero h1 {
+    position: relative;
+    font-size: 3em;
+    color: #FFD700;
+    padding: 10px 25px;
+    border-radius: 8px;
+    z-index: 1;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Contact section */
+.contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 40px;
+}
+
+/* Form */
+.form-container {
+    flex: 1 1 400px;
+}
+
+.form-container h2 {
+    color: #ff4d4d;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    font-size: 1em;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+button {
+    padding: 12px;
+    background-color: #b30000;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #800000;
+}
+
+/* Info */
+.info-container {
+    flex: 1 1 400px;
+}
+
+.info-container h2, .info-container h3 {
+    color: #FFD700;
+    margin-top: 0;
+}
+
+.info-container p, .info-container a, .info-container li {
+    color: #f5f5f5;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+iframe {
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+/* Socials */
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #FFD700;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: #ff4d4d;
+}
+
+/* === Footer (like UserDashboard) === */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    font-size: 14px;
+    border-top: 1px solid #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container, .info-container {
+        width: 100%;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+footer {
+    background-color: #1a1a1a;
+    padding: 40px 20px 10px 20px;
+    color: #f5f5f5;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section {
+    flex: 1 1 250px;
+    margin: 10px;
+}
+
+.footer-section h3, .footer-section h4 {
+    color: #FFD700;
+}
+
+.footer-section a {
+    color: #f5f5f5;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: #ff4d4d;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: 14px;
+}

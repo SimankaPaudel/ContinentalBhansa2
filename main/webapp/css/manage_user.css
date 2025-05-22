@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Playfair Display', serif;
+	display: flex;
+	height: 100vh;
+	}
+
+.sidebar {
+  background-color: #4b0000; /* deep maroon */
+  color: white;
+  width: 220px;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar .brand {
+  font-size: 18px;
+  font-weight: bold;
+  color: gold;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+}
+
+.sidebar a i {
+  margin-right: 10px;
+}
+
+.sidebar a:hover {
+  background-color: #a00000;
+}
+
+.sidebar a.active {
+  background-color: #a00000;
+}
+
+.logout-section {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.logout-section a {
+  color: white;
+  font-size: 14px;
+}
+
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  padding: 30px 40px;
+  background-color: #eaeaea; /* light gray background */
+  overflow-y: auto;
+  height: 100vh;
+}
+
+/* Header row (title + button) */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-header {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+}
+
+.header-row p {
+  margin: 0;
+  color: #555;
+}
+
+/* Add User Button */
+.add-user-btn {
+  background-color: #800000;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.add-user-btn i {
+  margin-right: 5px;
+}
+
+/* Search + Filter Row */
+.filter-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.filter-controls select {
+  padding: 10px 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Card/Table container */
+.card {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+.card-header {
+  background-color: #800000;
+  color: white;
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+/* Table Styling */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.user-table th {
+  background-color: #f4f4f4;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.Active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.Inactive {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.Banned {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Action Buttons */
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 6px;
+  color: #555;
+}
+
+.edit-btn:hover {
+  color: #007bff;
+}
+
+.delete-btn:hover {
+  color: #dc3545;
+}
+
+.action-select {
+  padding: 6px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
